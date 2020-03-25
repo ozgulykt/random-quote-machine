@@ -3,7 +3,7 @@ import './App.css';
 import Quotes from './components/Quotes';
 import Button from './components/Button';
 import Twitter from './components/Twitter';
-import { url, colors } from './actions/index';
+import { url, colors } from './utilities/index';
 class App extends Component {
 
   constructor(props) {
@@ -30,25 +30,25 @@ class App extends Component {
 
   randomColor = () => {
     const index = Math.floor(Math.random() * (colors.length));
-    console.log(colors[index]);
+    // console.log(colors[index]);
     return colors[index];
   }
 
   onClick = () => {
-    const quotes = this.fetchQuotes();
+    this.fetchQuotes();
     this.setState ({
       colour: this.randomColor()
     });
     
   }
 
-componentDidMount() {
-  const quotes = this.fetchQuotes();
-  this.setState ({
-    colour: this.randomColor()
-  });
-  document.body.style.backgroundColor = this.state.colour;
-}  
+  componentDidMount() {
+    this.fetchQuotes();
+    this.setState ({
+      colour: this.randomColor()
+    });
+    document.body.style.backgroundColor = this.state.colour;
+  }  
 
   render() {
     const { quote, author, colour } = this.state;

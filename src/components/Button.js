@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import '../App.css';
 
-const Button = ({ onClick, colour }) => {
+const Button = (props) => {
     return (
         <div>
-            <button id="new-quote" className="btn btn-secondary" style={{ backgroundColor: colour }} onClick={onClick}>New Quote</button>
+            <button id="new-quote" 
+                    className="btn btn-secondary" 
+                    style={{ backgroundColor: props.colour }} 
+                    onClick={props.onClick}>New Quote
+            </button>
         </div>
     );
 }
